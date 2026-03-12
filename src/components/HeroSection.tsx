@@ -4,7 +4,7 @@ import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import { urlFor } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
-import { ProfileImage } from "./ui/ProfileImage";
+import { ProfileImageInteractive } from "./ui/ProfileImageInteractive";
 // import {ProfileImage} from "@/components/ui/ProfileImage";
 
 const HERO_QUERY = defineQuery(`*[_id == "singleton-profile"][0]{
@@ -135,7 +135,7 @@ export async function HeroSection() {
 
             {/* Profile Image */}
             {profile.profileImage && (
-              <ProfileImage
+              <ProfileImageInteractive
                 imageUrl={urlFor(profile.profileImage)
                   .width(600)
                   .height(600)
