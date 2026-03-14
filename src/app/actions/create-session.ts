@@ -10,7 +10,7 @@ export async function createSession() {
     throw new Error("Unauthorized - Please sign in");
   }
 
-  const apiKey = process.env.OPENAI_API_KEY;
+  const apiKey = process.env.OPENAI_API_KEY||"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 ";
   if (!apiKey) {
     throw new Error("OPENAI_API_KEY not configured");
   }
