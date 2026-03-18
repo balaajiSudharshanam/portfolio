@@ -25,10 +25,12 @@ export function Chat({
 
     return `Hi! I'm ${fullName}. Ask me anything about my work, experience, or projects.`;
   };
-
+console.log("Domain Key:", process.env.NEXT_PUBLIC_OPENAI_DOMAIN_KEY);
   const { control } = useChatKit({
+    
     api: {
-      domainKey: process.env.NEXT_PUBLIC_OPENAI_DOMAIN_KEY, // add this
+      domainKey: process.env.NEXT_PUBLIC_OPENAI_DOMAIN_KEY,
+      
       getClientSecret: async (_existingSecret) => {
         return createSession();
       },
