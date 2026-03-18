@@ -28,8 +28,8 @@ export function Chat({
 
   const { control } = useChatKit({
     api: {
+      domainKey: process.env.NEXT_PUBLIC_OPENAI_DOMAIN_KEY, // add this
       getClientSecret: async (_existingSecret) => {
-        // Called on initial load and when session needs refresh, we dont actuall use the existing secret as userId is managed by Clerk
         return createSession();
       },
     },
