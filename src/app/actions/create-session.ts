@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { WORKFLOW_ID } from "@/lib/config";
 
 export async function createSession() {
+ 
   const { userId } = await auth();
 
   if (!userId) {
@@ -11,6 +12,7 @@ export async function createSession() {
   }
 
   const apiKey = process.env.OPENAI_API_KEY;
+  // console.log(apiKey);
   if (!apiKey) {
     throw new Error("OPENAI_API_KEY not configured");
   }
@@ -18,7 +20,7 @@ export async function createSession() {
   if (!WORKFLOW_ID) {
     throw new Error("WORKFLOW_ID not configured");
   }
-
+  
   // Create ChatKit session with Clerk user ID
   const response = await fetch("https://api.openai.com/v1/chatkit/sessions", {
     method: "POST",

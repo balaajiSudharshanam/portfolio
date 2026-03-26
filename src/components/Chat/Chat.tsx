@@ -27,11 +27,10 @@ export function Chat({
   };
 
   const { control } = useChatKit({
-    
     api: {
-      domainKey: process.env.NEXT_PUBLIC_OPENAI_DOMAIN_KEY,
-      
+      domainKey: "domain_pk_69b757e794408190b5a15e94131d38980d72c5f6450828a6", // add this
       getClientSecret: async (_existingSecret) => {
+        
         return createSession();
       },
     },
